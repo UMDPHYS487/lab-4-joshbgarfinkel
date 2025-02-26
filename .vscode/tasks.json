@@ -1,0 +1,33 @@
+{
+    "tasks": [
+        {
+            "label": "Build and Run Active File",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+              "-c",
+              "make ${fileBasenameNoExtension} && ./${fileBasenameNoExtension}"
+            ],
+            "group": {
+              "kind": "build",
+              "isDefault": true
+            },
+            "problemMatcher": [
+              {
+                "owner": "cpp",
+                "fileLocation": ["relative", "${workspaceFolder}"],
+                "pattern": {
+                  "regexp": "^(.*):(\\d+):(\\d+): (error|warning|note): (.*)$",
+                  "file": 1,
+                  "line": 2,
+                  "column": 3,
+                  "severity": 4,
+                  "message": 5
+                }
+              }
+            ],
+            "detail": "Builds the active file using make and then runs the executable"
+        },
+    ],
+    "version": "2.0.0"
+}
